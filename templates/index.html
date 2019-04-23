@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <style>
+                label {
+                    margin-bottom: 5px;
+                    display: block;
+                    font-size: 18px;
+                    }
+                body {
+                    padding: 50px;
+                    }
+                form {
+                    background-color: #eee;
+                    padding: 20px;
+                    margin: 0 auto;
+                    width: 540px;
+                    font: 16px sans-serif;
+                    border-radius: 10px;
+                    }
+                h1 {
+                    text-align: center;
+                    color: rgb(14, 199, 199);
+                    }
+                button {
+                    font-size: 16px;
+                    padding: 10px 20px;
+                    border: none;
+                    background-color: rgb(14, 199, 199);
+                    color: white;
+                    transition: background-color 250ms;
+                    }
+            </style>
+        </head>
+        <body>
+            <style>
+                .error {color: red;}
+            </style>
+            <form action="/register" id = "form" method = 'post'>
+                <label>Username:
+                    <input name = "username_render" id = "username_render" type = "text" value = "{{ username_render }}">
+                </label>
+                <p class="error">{{ username_error_render }}</p>
+                <label>Password:
+                    <input id = 'password_render' name = "password_render" type = "password" value="{{ password_render }}" />
+                </label>
+                <p class="error">{{ password_error_render }}</p>
+                <label>Verify Password:
+                    <input id = 'password2_render' name = "password2_render" type = "password" value="{{ password2_render }}"/>
+                </label>
+                <p class="error">{{ password2_error_render }}</p>
+                <label>E-mail (optional):
+                    <input id = 'email_render' name = "email_render" type = "text" value = "{{ email_render }}"/>
+                </label>
+                <p class="error">{{ email_error_render }}</p>
+                <button type="submit">Register</button>
+            </form>
+            {% block content %}
+            {% endblock %}
+        </body>
+    </html>
+
